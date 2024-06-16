@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+<!--  Top Part  -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="24dp"
+        android:padding="4dp"
+        android:layout_marginTop="18dp">
+        
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/logo"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_slogan"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginStart="8dp"/>
+
+    </LinearLayout>
+
+<!-- Track Progress -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/progress_title"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="8dp"/>
+    
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/container_background"
+        android:backgroundTint="@color/container_background"
+        app:cardCornerRadius="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginHorizontal="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginVertical="24dp"
+            android:layout_marginHorizontal="18dp"
+            >
+
+<!--      Start a New Task      -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:text="@string/start_new_task"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Süre"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:layout_weight="1"/>
+
+                <NumberPicker
+                    android:id="@+id/timerPicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:theme="@style/AppTheme.Picker"
+                    />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Seans"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:layout_weight="1"/>
+
+                <NumberPicker
+                    android:id="@+id/sessionPicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="52dp"
+                    android:theme="@style/AppTheme.Picker"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="12dp">
+
+                <ProgressBar
+                    android:id="@+id/taskProgressBar"
+                    android:layout_width="0dp"
+                    android:layout_height="8dp"
+                    android:layout_weight="1"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:progressDrawable="@drawable/custom_progress_bg"/>
+
+                <TextView
+                    android:id="@+id/taskProgressBarText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="%0"
+                    android:textColor="@color/white"
+                    android:layout_marginStart="12dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rlBig"
+            android:layout_width="300dp"
+            android:layout_height="324dp"
+            android:layout_centerHorizontal="true"
+            >
+
+            <FrameLayout
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_centerInParent="true">
+
+                <ProgressBar
+                    android:id="@+id/sessionProgressBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:indeterminate="false"
+                    android:max="10"
+                    android:progress="5"
+                    android:rotation="90"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:background="@drawable/custom_timer_background"
+                    android:progressDrawable="@drawable/custom_timer_foreground"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/sessionCountDownText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="25 : 00"
+                        android:textColor="@color/white"
+                        android:textSize="40sp"/>
+
+                    <TextView
+                        android:id="@+id/taskSessionCountText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Görev bekleniyor"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+            </FrameLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/start"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_timer_background"
+                    android:backgroundTint="@color/container_background"/>
+
+                <ImageButton
+                    android:id="@+id/settingsButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/baseline_menu_24"
+                    android:backgroundTint="@color/white"
+                    android:layout_margin="16dp"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/stop"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_timer_background"
+                    android:backgroundTint="@color/container_background"/>
+
+                <ImageButton
+                    android:id="@+id/stopTaskButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/baseline_circle_24"
+                    android:backgroundTint="@color/white"
+                    android:layout_margin="16dp"/>
+
+            </RelativeLayout>
+
+
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/notifications"-->
+<!--                android:layout_width="32dp"-->
+<!--                android:layout_height="32dp"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:layout_alignParentTop="true"-->
+<!--                android:layout_marginTop="32dp">-->
+
+<!--                <ImageButton-->
+<!--                    android:id="@+id/notificationButton"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:background="@drawable/baseline_notifications_24"-->
+<!--                    android:backgroundTint="@color/white"/>-->
+
+<!--            </RelativeLayout>-->
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/bottom"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/rlBig"
+            android:layout_marginTop="-16dp">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/custom_timer_background"
+                android:backgroundTint="@color/foreground"/>
+
+            <ImageButton
+                android:id="@+id/toggleTaskButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/baseline_play_arrow_24"
+                android:backgroundTint="@color/white"
+                android:layout_margin="18dp"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="background">#161616</color>
+    <color name="foreground">#483D8B</color>
+    <color name="container_background">#2C2C2C</color>
+    <color name="container_border">#A1A1A1</color>
+    <color name="danger">#D16161</color>
+    <color name="confirm">#72C075</color>
+
+
+</resources>
